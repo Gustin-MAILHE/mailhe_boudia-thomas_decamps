@@ -1,0 +1,7 @@
+loc() {
+    local url="${1:-.}"
+    find "$url" -type f -exec wc -l {} + | awk '{total += $1} END {print total}'
+}
+
+total_lignes=$(loc ~/Documents/01_cartable_numerique/but/an3/R5A08_Qualite_Dev/mailhe_boudia-thomas_decamps/iqsort0)
+echo $total_lignes
