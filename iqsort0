@@ -1,12 +1,17 @@
+/*
+Author : J-P. Prost
+Date : 2026/10/08
+Description : Quicksort implementation
+ */
 void iqsort0 (int *a, int n)
 {
-   int i, j;
-   if (n <= 1)
-      return;
-   for (i = 1, j = 0; i < n ; i++)
-      if (a[i] < a[0])
-	  swap(++j, i, a);
-   swap(0, j, a);
-   iqsort0(a, j);
-   iqsort0(a+j+1, n-j-1);
+   int i, j;   // initializing integers i and j
+   if (n <= 1) // checking how many variables are left in array
+      return;  // returns when 1 or less variables are in array
+   for (i = 1, j = 0; i < n ; i++) // looping n-1 times
+      if (a[i] < a[0]) // checking if variables at index in array is lesser than the first variable of array
+	  swap(++j, i, a); // swaping variable at j+1 in array with variable at i in array
+   swap(0, j, a); // swaping the firts variable in array with variable at j in array
+   iqsort0(a, j); // recursively calling another instance of iqsort0 with the same array and lenght stoping at j
+   iqsort0(a+j+1, n-j-1); // recursively calling another instance of iqsort0 with new parameters
 }
